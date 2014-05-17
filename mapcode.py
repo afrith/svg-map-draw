@@ -2,7 +2,7 @@ from math import sqrt
 
 class Map(object):
 
-    def __init__(self, provcode, pixels, bounds):
+    def __init__(self, pixels, bounds):
         (self.west, self.south, self.east, self.north) = map(float, bounds)
 
         geowidth = self.east - self.west

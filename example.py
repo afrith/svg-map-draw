@@ -4,7 +4,7 @@ import sys
 from osgeo import ogr
 import mapcode
 
-themap = mapcode.Map('ZA', 1000000, (-785420, -710582, 832443, 695214))
+themap = mapcode.Map(1000000, (-785420, -710582, 832443, 695214))
 conn = ogr.Open("PG: dbname=wikimaps")
 select = ' ST_Multi(ST_Intersection(ST_Transform(geom, 60001), ST_MakeEnvelope(%f, %f, %f, %f, 60001))) ' % (themap.west - 20000, themap.south - 20000, themap.east + 20000, themap.north + 20000)
 select_simp = select.replace("geom", "geom_simp")
